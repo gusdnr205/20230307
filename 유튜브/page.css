@@ -1,0 +1,271 @@
+.main{
+    border: 1px solid;
+    width: 892px;
+    height: 2000px;
+
+}
+
+.title{
+    
+    overflow: hidden;
+    word-break: break-word;
+    line-height: 2.8rem;
+    font-size: 2rem;
+    width: 358;
+    height: 24;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.icon{
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    background-image: url(https://yt3.ggpht.com/SXKyE4XgHJtX4qLS-9FKDuZt9EpBfeFPlGmNQdqsfxW2FDaKOjE53Mb20E43QuQfNDritLK1aw=s48-c-k-c0x00ffffff-no-rj);
+
+    
+}
+
+.flexiconnameviewer{
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 216px;
+    height: 44px;
+    align-content: space-between;
+    margin-left: 10px;
+}
+
+.iconname{
+   
+    width: 216px;
+    height: 22px;
+    display: block;
+    margin-right: -0.1em;
+    padding-right: 0.1em;
+    white-space: pre;
+
+}
+.viewer{
+    display:block;
+  
+    width: 216px;
+    height: 18px;
+
+}
+
+.subscribe{
+    width: 30px;
+    height: 26;
+    font-size: 14px;
+    border-radius: 18px;
+    padding: 0 16px;
+    margin-left: 30px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+.subtext{
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.like{
+    display: flex;
+    background-color: gray;
+    margin-top: 3px;
+    margin-left: 180px;
+    border: 1px solid;
+    width: 100px;
+    height: 38px;
+    border-radius: 50px 0 0 50px;
+}
+.like img{
+    padding: 2px;
+    width: 30px;
+    height: 27px;
+    margin-left: 10px;
+    border-radius: 20%;
+}
+.like span{
+    display: block;
+    color: white;
+    font-size: 14px;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.dislike{
+    background-color: gray;
+    border: 1px solid;
+    margin-top: 3px;
+    width: 52px;
+    height: 38px;
+    border-radius: 0 50px 50px 0;
+    
+}
+
+.dislike img{
+   
+    padding: 1px;
+    padding-top: 5px;
+    width: 30px;
+    height: 27px;
+    margin-left: 5px;
+    border-radius: 20%;
+
+}
+
+.share{
+    display: flex;
+    background-color: gray;
+    margin-left: 8px;
+    margin-top: 3px;
+    border: 1px solid;
+    border-radius: 40px;
+    width: 80px;
+    height: 38px;
+    }
+.share span{
+    display: block;
+    color: white;
+    font-size: 14px;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+.share img{
+    padding: 1px;
+    padding-top: 5px;
+    width: 30px;
+    height: 27px;
+    margin-left: 5px;
+    border-radius: 20%;
+
+}
+.save{
+    display: flex;
+    background-color: gray;
+    margin-left: 8px;
+    margin-top: 3px;
+    border: 1px solid;
+    border-radius: 40px;
+    width: 80px;
+    height: 38px;
+}
+.save span{
+    display: block;
+    color: white;
+    font-size: 14px;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.save img{
+    padding: 1px;
+    padding-top: 5px;
+    width: 30px;
+    height: 27px;
+    margin-left: 5px;
+    border-radius: 20%;
+
+}
+
+.box2{
+    padding-top: 10px;
+    
+    margin-top: 10px;
+    
+    width: 890px;
+    height: 296px;
+
+}
+
+.box2 span{
+    margin-left: 10px;
+}
+
+.box2 p{
+    margin-left: 10px;
+}
+
+.box2 a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+
+.like:hover .sub-tag{
+    display: block;
+}
+.like .sub-tag{
+    position: absolute;
+    background-color: black;
+    color: white;
+    display: none;
+    font-size: 12px;
+    width: 180px;
+    text-align: center;
+    top: 684px;
+    left: 453px;
+}
+
+.dislike:hover .sub-tag{
+    display: block;
+}
+.dislike .sub-tag{
+    position: absolute;
+    background-color: black;
+    color: white;
+    display: none;
+    font-size: 12px;
+    width: 180px;
+    text-align: center;
+    top: 686px;
+    left: 584px;
+
+}
+
+
+.share:hover .sub-tag{
+    display: block;
+}
+.share .sub-tag{
+    position: absolute;
+    background-color: black;
+    color: white;
+    display: none;
+    font-size: 12px;
+    width: 180px;
+    text-align: center;
+    top: 684px;
+    left: 645px;
+
+}
+
+.save .sub-tag{
+    position: absolute;
+    background-color: black;
+    color: white;
+    display: none;
+    font-size: 12px;
+    width: 180px;
+    text-align: center;
+    top: 684px;
+    left: 703px;
+
+}
+.save:hover .sub-tag{
+    display: block;
+}
