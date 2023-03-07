@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style 선택자</title>
+    <style>
+        /* 태그들의 속성을 작성하고 태그에 한번에 적용시켜줄수있다.*/
+        /* id 선택자는 css 작성에서 #을 이름의 앞에붙여준다. #은 id 라는 의미*/
+        /* id 속성의 스타일을 우선으로 한다.*/
+        #test{
+            color: red;
+        }
+
+        .block7{
+            color: blue;
+        }
+
+        /* 같은 속성이 두번 작성되었을때는 맨 밑으로 작성된 속성이 적용된다*/
+
+        .block7{
+            color: aqua;
+        }
+
+        /* * 선택자는 모든 태그의 스타일을 적용시킨다.*/
+        *{
+            color: darkmagenta;
+
+        }
+        /*태그 선택자 태그의 이름으로도 스타일을 줄수있다.*/
+        div{
+            color: blueviolet;
+        }
+
+        /* 여러 태그에 속성을 같이 적용시켜주고싶을때*/
+        div,h1{
+            color: yellow;
+        }
+        /* class 선택자는 css 작성에서 .을 이름의 앞에 붙여준다.*/
+
+        /*자식 선택자*/
+        /*부모태그 div의 p자식 태그 선택자*/
+        div p{
+            /*부모 태그 안에 자식태그에 스타일을 주고 싶을때*/
+        }
+        .test .content{
+            /* test클래스를 ㅏ지고있는 태그의 자식태그중 content 클래스를 가지고있는 태그*/
+            /*
+                <div class="test">
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            */
+        }
+
+        /*tst 클래스와 content클래스를 둘다 가지고있는 태그*/
+        .test.content{
+            /* 두 클래슬르 모두 가지고있을때 적용*/
+            /*
+                div class="test content"
+                div class="test" class="content;" 이런경우는없다
+            */
+        }
+        /*자식 태그중 해당 클래스를 가지고있고 바로 아래 자식일때 */
+        .test > .content{
+            /*tst클래스를 가지고있는 태그 자식중 content클래스를 가지고있는 자식중에 제일 첫번째 자식*/
+            /*
+                <div class="test"">
+                    <div class="content">
+                     이 태그만 스타일이적용된다.
+                    </div>
+                    <div class="content">
+                    
+                    </div>
+                    <div class="content">
+                    
+                    </div>
+                </div>
+            */
+        }
+    </style>
+</head>
+<body>
+    <!-- id 선택자 : id 선택자는 문서 안에서 한번만 적용된다.
+                    중복되면 안되고 고유의 명을 정해준다. 레이아웃 스타일을 지정해주거나
+                     이후 자바스크립트를 사용할때 웹요소를 구분할때사용한다 -->
+    <!-- <div id="test" class="block7"> 나는 id</div> -->
+    <!-- class 선택자 : 같은태그라도 다른스타일을 적용시킬대 클래스 선택자를 사용한다.
+                        태그의 클래스명이 중복되어도 괜찮다. 
+                        우리 반을 블록체인 7기라고 한다. 반 손드세요 하면 다손든다. id는 학생이다 학생의 이름 -->
+    <!-- <div class="block7">나는 블록체인 7기</div> -->
+
+    <div> 나도 블록체인 7기</div>
+    <div> 나도 블록체인 7기</div>
+    <div> 나도 블록체인 7기</div>
+    <div> 나도 블록체인 7기</div>
+    <div> 나도 블록체인 7기</div>
+    <div> 나도 블록체인 7기</div>
+    <h1>나도 블록체인 7기</h1>
+    <h2>블록체인 7기</h2>
+</body>
+</html>

@@ -1,0 +1,43 @@
+.flex{
+    border: 1px solid;
+    display: flex;
+   
+}
+.num{
+    border: 1px solid;
+    width: 50px;
+    text-align: center;
+}
+.sub{
+    border: 1px solid;
+    width: 500px;
+    text-align: center;
+}
+.file{
+    border: 1px solid;
+    width: 80px;
+    text-align: center;
+}
+.date{
+    border: 1px solid;
+    text-align: center;
+    width: 200px;
+}
+.view{
+    border: 1px solid;
+    text-align: center;
+}
+.sub2{
+    text-align: left;
+    width: 500px;
+}
+.view2{
+    border: 1px solid;
+    text-align: center;
+    padding: 10;
+}
+
+.img{
+    width:15px;
+    height: 15px;
+}

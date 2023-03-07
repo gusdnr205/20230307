@@ -1,0 +1,17 @@
+.image{
+    border:1px solid;
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+}
+.text{
+    padding-top: 80px;
+    text-align: center;
+}
+.text2{
+    text-align: center;
+}

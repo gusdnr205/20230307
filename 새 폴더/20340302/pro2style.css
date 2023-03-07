@@ -1,0 +1,54 @@
+.check{
+    border: 1px solid;
+}
+.image{
+    border:1px solid;
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+
+}
+.text{
+    padding-top: 80px;
+    text-align: center;
+}
+.box{
+    
+    display: flex;
+    
+  
+
+}
+.smallbox{
+    display: flex;
+    height: 35px;
+    justify-content: space-between;
+}
+
+.text2{
+    text-align: right;
+}
+.lucky{
+    display: flex;
+}
+.underline{    
+    color: rgb(255, 255, 255);
+
+    text-decoration: underline;
+    /* 텍스트에 밑줄 추가 */
+    /* 글씨의 색 rgb(),rgba()등등으로 설정이 가능하다 rgba 의 마지막의 경우 투명도이다.*/
+}
+
+.text3{
+    text-align: start;
+}
+.text4{
+    display: flex;
+    justify-content: flex-end
+        /* 오른쪽 끝으로 정렬 */
+}
+
+.line{
+    margin-left: 0%;
+    width: 800px;
+}

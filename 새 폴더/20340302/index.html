@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이틀전까지 한내용
+    태그: div p h1~h6 span br img table a
+    스타일을 줘보자 속성(attribute)style을 주자
+
+    <div style="width: 100%; height: 60px; background-color: black; padding: 0%;
+     margin: 0%; box-sizing: border-box;"></div>
+    style 속성 = css <br>
+    width : 너비, max-width, min- width <br>
+    height : 높이, max height min height <br>
+    background-color : 배경색, 색상을 태그를 입힐수있다. rgb(255,255,255);<br>
+    padding(태그 내부 여백), margin(외부의 여백): top, right bottom,left(순서를 뜻한다.) <br>
+    margin의 경우 값을 하나만 썼을때는 그 값이 사방면에 다적용이 된다. 사방면을 각각 주고싶을때는 top right bottom left 모두 작성해줘도 된다. <br>
+    두개씩 짝짓는것도 가능한데 그경우는 상하 , 좌우 두가지 경우에 해당한다. <br>
+    box-sizing : 박스의 크기를 어떻게 설정할지를 기준을 설정<br>
+
+    <!-- div는 블럭 요소를 가지고 있는데  -->
+    <div style="width: 500px;" >
+        <div style="display: inline-block;">
+            속성을 추가 할때
+            속성 명 = "속성 값"
+            display : 영역의 노출크기를 어떻게 설정할지 기준을설정한다.
+            부모태그를 기준으로 모든 너비를 차지한다. 높이는 자식의 기준으로
+            부모의 영역만큼만 차지한다. 블럭일 경우.
+        </div>
+    </div>
+    <div style="width: 100%;" >
+        <div style="width: 200px; height: 200px; border: 1px solid; display: inline-block;" ></div>
+        <div style="width: 200px; height: 200px; border: 1px solid; display: inline-block;" ></div>
+    </div>
+        
+    <!-- inline은 자신의 크기만큼만 블럭을 차지한다.  -->
+    <!-- display flex를 알아보자 자식요소에 영향을준다. -->
+    <div style="display: flex;">
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+        <div style ="width: 200px; height: 200px; border: 1px solid;"></div>
+    </div>
+
+    <div>
+        <h1 style="color: red;">경일 게임 아카데미</h1>
+        <h2 style="color: blue;">경일 게임 아카데미</h2>
+        <h3 style="color: aqua;">경일 게임 아카데미</h3>
+    </div>
+    <p></p>
+    <h1></h1>
+</body>
+</html>

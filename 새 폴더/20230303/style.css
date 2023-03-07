@@ -1,0 +1,41 @@
+.background {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    /* 배경색 추가 */
+
+    background-image: url("https://www.jungle.co.kr/image/ea06cd0346fa8777cb624e3f");
+    /* 배경이미지 추가 */
+
+    background-size: contain;
+    /* 배경이미지의 크기 지정 , 이미지가 다보일수있게 크기를 맞춰줌(비율맞춤)*/
+
+    background-size: cover;
+    /* 배경 이미지의 크기 지정, 최대크기(비율 맞춤), 이미지가 잘릴수있다. 이미지와 비율을 맞춰야함*/
+
+    background-size: 100px 100px;
+    /* 이미지의 사이즈 지정 너비, 높이 */
+
+    background-position: 10px 10px;
+    /* 배경 이미즈의 위치 지정 x축 y축*/
+
+    background-position: center;
+    /* 배경 이미지의 위치 가운데 맞춤 */
+
+    background-repeat: no-repeat;
+    /* 배경 이미지 반복 여부, 반복하지 않는다. */
+
+    background-repeat: repeat;
+    /* 배경 이미지 반복 여부 기본값 반복한다. */
+
+    background-repeat: repeat-x;
+    /* 배경이미지를 x축으로만 반복한다. */
+
+    background-repeat: repeat-y;
+    /* 배경이미지를 y축으로만 반복한다. */
+
+    
+    
+
+
+}

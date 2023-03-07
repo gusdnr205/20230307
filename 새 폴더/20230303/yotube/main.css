@@ -1,0 +1,123 @@
+.content li{
+    /* float 왼쪽 오른쪽으로 붙여서 정렬시킬수있다. */
+    float: left;
+    /* ul li태그를 사용하면서 리스트의 점이나 수자리스트의 형식을 지정할수있다. */
+    list-style: none;
+}
+/* content 클래스를 가진 태그의 자식 li 태그의 자식 itemimg 클래스를 가진
+    태그만 스타일을 적용시킨다. */
+.content li .itemimg{
+    width: 290px;
+    height: 164px;
+    border-radius: 10px;
+}
+
+
+
+/* 어떤 태그의 자식이든 itemimg 클래스를 가지고있는 태그으ㅔ 
+    스타일을 적용시킨다. */
+.itemimg{
+
+
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    /* margin auto 좌우 여백이 동일하게 맞춰진다. */
+    margin: auto;
+    width: max-content
+}
+.content {
+    /* max content 자식태그의 너비만큼 너비를 가진다. */
+    width: max-content;
+    padding: 0;
+}
+
+.item{
+    position: relative;
+
+    width: 290px;
+    height: 277px;
+    margin-right: 20px;
+}
+
+.content li:last-child. item{
+    margin-right: 0;
+}
+
+/* 마지막 요소 선택자 last-child */
+/* .item:last-child{ */
+    /* margin-right: 0; */
+}
+/* 첫번째 */
+/* .item:first-child{ */
+
+}
+
+.sub-tag{
+    position:absolute;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+    display: none;
+    font-size: 12px;
+    width: 180px;
+    text-align: center;
+    top: 145px;
+    left: 110px;
+}
+/* 가상 선택자 : */
+/* hover 속성 마우스가 태그에 올려졌을떄 적용 */
+/* item태그에 마우스가 올려졌을때 자식태그중 subtag클래스를가지고있는
+    태그가 스타일이 적용된다. */
+.item:hover .sub-tag
+{
+    display: block;
+} 
+
+.icon{
+    position: absolute;
+    bottom: 66;
+    left: 0;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url("https://yt3.ggpht.com/msuINkZ7cd8lk4Re36ci54UCmRW3EPMvWYLvqFTYHPvAISQPVpJAxMiKHEVG210pCqUgEBCkwT8=s68-c-k-c0x00ffffff-no-rj") ;
+ 
+}
+
+.title{
+    width: 245px;
+    font-size: 14px;
+    margin-left:  50px;
+    margin-top:  5px;
+    /* 줄바꿈 속성을 없애준다 한줄로 텍스트를 만들어준다. */
+    white-space: nowrap;
+    /* 부모보다 자식태그가 넘치면 지워버림 */
+    overflow: hidden;
+
+    /* 텍스트가 부모 태그의 넓이보다 길어지면 점점점 처리 */
+    text-overflow: ellipsis;
+}
+.sub-title{
+    font-size: 12px;
+    color: gray;
+    margin: -10px 0 0 50px;
+}
+/* 가상 선택자 */
+/* before, after 가상요소를 추가해줄수있다. */
+/* content 속성이 있어야 한다 꼭 */
+.sub-title span::before{
+
+    content: "*";
+
+}
+/* after는 후에 붙고 before는 전에 붙는다. */
+.sub-title span::after{
+    content: "";
+}
