@@ -252,6 +252,7 @@ account = 20000;
 let judge = true;
 let i = 0;
 let controlbit = [0];
+let maxgame=20;
 
 let depth = 0;
 
@@ -445,6 +446,7 @@ while (i < 21) {
     }
     controlbit[0] = 0;
     alert(account + "남은 잔액");
+    alert(maxgame-i+"남은 게임판수");
     if (account <= 0) {
         alert("게임끝낫습니다");
     }
