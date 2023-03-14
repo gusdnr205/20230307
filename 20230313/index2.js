@@ -88,21 +88,21 @@ let game2= true;
 let player=true;
 let computer= true;
 let attack= [0,1,2];
-while(game2){
-    //가위바위보 후 선제권을 가지는과정
-    if(attack===0){
-        //player가 먼저 수를 입력한다. 0 플레이어가 이긴경우
-        //컴퓨터가 입력한다. 
-        //같을경우 플레이어 승리
-        if player win
-        game2 = false
-        else if palayervalue !== computervalue
-        game2 = true
-        //같지않을경우 다시 입력한다. ? 같지않을경우 true 
-    }else if(attack===1){
-        //com이 먼저 수를 입력한다. 1컴퓨터가 이긴경우 
-    }else if(attack===2){
-        // 비긴경우 
-    }
+// while(game2){
+//     //가위바위보 후 선제권을 가지는과정
+//     if(attack===0){
+//         //player가 먼저 수를 입력한다. 0 플레이어가 이긴경우
+//         //컴퓨터가 입력한다. 
+//         //같을경우 플레이어 승리
+//         if player win
+//         game2 = false
+//         else if palayervalue !== computervalue
+//         game2 = true
+//         //같지않을경우 다시 입력한다. ? 같지않을경우 true 
+//     }else if(attack===1){
+//         //com이 먼저 수를 입력한다. 1컴퓨터가 이긴경우 
+//     }else if(attack===2){
+//         // 비긴경우 
+//     }
 
-}
+// }

@@ -240,6 +240,7 @@
 // 종료조건 20판 다 끝나면 or 돈다 잃었을때
 // 소지금이랑 몇판했는지 알려주기
 
+
 let account = 0;
 let value2 = "가위";
 // value2 = parseInt(value2);
@@ -255,12 +256,60 @@ let controlbit = [0];
 let maxgame=20;
 
 let depth = 0;
+function whoIsWinner(value) {
+    if (value === rcp[computervalue] && depth === 1) {
+        alert("나는 " + value2);
+        alert("com: " + rcp[computervalue]);
+        alert("비김");
+        judge = false;
+        game = false;
+      
+    }
+    if (value === rcp[computervalue] && depth > 1) {
+        alert("나는 " + value2);
+        alert("com: " + rcp[computervalue]);
+        if (controlbit[0] == 2) { alert("컴퓨터승"); }
+        if (controlbit[0] == 1) { alert("내가 이겼따!"); }
+        judge = false;
+        game = false;
+       
+    }
+}
+
+function alert1(){
+    alert("com:" + rcp[computervalue]);
+    alert("내가 짐");
+    alert("컴퓨터의 선공입니다. 컴퓨터가 뭘낼지 결정중입니다.");
+    controlbit[0] = 2;
+    computervalue = parseInt(Math.random() * 3);
+    value2 = prompt("당신이 뭘낼지 결정하십시오");
+    judge = false;
+   
+}
+function alert2(){
+    alert("com:" + rcp[computervalue]);
+    alert("내가 이김");
+    controlbit[0] = 1;
+    alert("당신의 선공입니다. 당신이 뭘낼지 결정하십시오");
+    value2 = prompt();
+    alert("컴퓨터가 뭘낼지 결정중입니다.")
+    computervalue = parseInt(Math.random() * 3);
+    judge = false;
+    
+
+}
+function gamecount(){
+    alert(i + "번째 게임 "+" 남은 게임판수"+(maxgame-i));
+    alert(`${account}당신의 남은금액입니당`);
+}
+
 
 while (i < 21) {
     i++;
     depth = 0;
-    alert(i + "번째 게임")
-    alert(`${account}당신의 남은금액`);
+    //alert(i + "번째 게임")
+    //alert(`${account}당신의 남은금액`);
+    gamecount();
     alert("게임시작전 배팅금액을 설정해주십시오 최소2000이상");
     bet = prompt("금액입력:");
     bet = parseInt(bet);
@@ -284,44 +333,30 @@ while (i < 21) {
         alert(depth);
         switch (value2) {
             case ("가위"):
-                if (value2 === rcp[computervalue] && depth === 1) {
-                    alert("나는 " + value2);
-                    alert("com: " + rcp[computervalue]);
-                    alert("비김");
-                    judge = false;
-                    game = false;
-                    break;
-                }
-                if (value2 === rcp[computervalue] && depth > 1) {
-                    alert("나는 " + value2);
-                    alert("com: " + rcp[computervalue]);
-                    if (controlbit[0] == 2) { alert("컴퓨터승"); }
-                    if (controlbit[0] == 1) { alert("내가 이겼따!"); }
-                    judge = false;
-                    game = false;
-                    break;
-                }
+                whoIsWinner(value2);
                 while (judge) {
                     if (rcp[computervalue] === "바위") {
-                        alert("com:" + rcp[computervalue]);
-                        alert("내가 짐");
-                        alert("컴퓨터의 선공입니다. 컴퓨터가 뭘낼지 결정중입니다.");
-                        controlbit[0] = 2;
-                        computervalue = parseInt(Math.random() * 3);
-                        value2 = prompt("당신이 뭘낼지 결정하십시오");
-                        judge = false;
-                        break;
+                        alert1();
+                        // alert("com:" + rcp[computervalue]);
+                        // alert("내가 짐");
+                        // alert("컴퓨터의 선공입니다. 컴퓨터가 뭘낼지 결정중입니다.");
+                        // controlbit[0] = 2;
+                        // computervalue = parseInt(Math.random() * 3);
+                        // value2 = prompt("당신이 뭘낼지 결정하십시오");
+                        // judge = false;
+                        // break;
                     }
                     else if (rcp[computervalue] === "보") {
-                        alert("com:" + rcp[computervalue]);
-                        alert("내가 이김");
-                        controlbit[0] = 1;
-                        alert("당신의 선공입니다. 당신이 뭘낼지 결정하십시오");
-                        value2 = prompt();
-                        alert("컴퓨터가 뭘낼지 결정중입니다.")
-                        computervalue = parseInt(Math.random() * 3);
-                        judge = false;
-                        break;
+                        alert2();
+                        // alert("com:" + rcp[computervalue]);
+                        // alert("내가 이김");
+                        // controlbit[0] = 1;
+                        // alert("당신의 선공입니다. 당신이 뭘낼지 결정하십시오");
+                        // value2 = prompt();
+                        // alert("컴퓨터가 뭘낼지 결정중입니다.")
+                        // computervalue = parseInt(Math.random() * 3);
+                        // judge = false;
+                        // break;
                     }
                     if (value2 !== "가위") {
                         judge = false;
@@ -330,23 +365,24 @@ while (i < 21) {
                 judge = true;
                 break;
             case ("바위"):
-                if (value2 === rcp[computervalue] && depth === 1) {
-                    alert("나는 " + value2);
-                    alert("com:" + rcp[computervalue]);
-                    alert("비김");
-                    judge = false;
-                    game = false;
-                    break;
-                }
-                if (value2 === rcp[computervalue] && depth > 1) {
-                    alert("나는 " + value2);
-                    alert("com: " + rcp[computervalue]);
-                    if (controlbit[0] == 2) { alert("컴퓨터승"); }
-                    if (controlbit[0] == 1) { alert("내가 이겼따!"); }
-                    judge = false;
-                    game = false;
-                    break;
-                }
+                whoIsWinner(value2);
+                // if (value2 === rcp[computervalue] && depth === 1) {
+                //     alert("나는 " + value2);
+                //     alert("com:" + rcp[computervalue]);
+                //     alert("비김");
+                //     judge = false;
+                //     game = false;
+                //     break;
+                // }
+                // if (value2 === rcp[computervalue] && depth > 1) {
+                //     alert("나는 " + value2);
+                //     alert("com: " + rcp[computervalue]);
+                //     if (controlbit[0] == 2) { alert("컴퓨터승"); }
+                //     if (controlbit[0] == 1) { alert("내가 이겼따!"); }
+                //     judge = false;
+                //     game = false;
+                //     break;
+                // }
 
                 while (judge) {
                     if (rcp[computervalue] === "보") {
@@ -379,22 +415,23 @@ while (i < 21) {
                 judge = true;
                 break;
             case ("보"):
-                if (value2 === rcp[computervalue] && depth === 1) {
-                    alert("com:" + rcp[computervalue]);
-                    alert("비김");
-                    judge = false;
-                    game = false;
-                    break;
-                }
-                if (value2 === rcp[computervalue] && depth > 1) {
-                    alert("나는 " + value2);
-                    alert("com: " + rcp[computervalue]);
-                    if (controlbit[0] == 2) { alert("컴퓨터승"); }
-                    if (controlbit[0] == 1) { alert("내가 이겼따!"); }
-                    judge = false;
-                    game = false;
-                    break;
-                }
+                whoIsWinner(value2);
+                // if (value2 === rcp[computervalue] && depth === 1) {
+                //     alert("com:" + rcp[computervalue]);
+                //     alert("비김");
+                //     judge = false;
+                //     game = false;
+                //     break;
+                // }
+                // if (value2 === rcp[computervalue] && depth > 1) {
+                //     alert("나는 " + value2);
+                //     alert("com: " + rcp[computervalue]);
+                //     if (controlbit[0] == 2) { alert("컴퓨터승"); }
+                //     if (controlbit[0] == 1) { alert("내가 이겼따!"); }
+                //     judge = false;
+                //     game = false;
+                //     break;
+                // }
 
                 while (judge) {
                     if (rcp[computervalue] === "가위") {
@@ -431,7 +468,6 @@ while (i < 21) {
     }
     game = true;
     if (value2 === rcp[computervalue]) {
-
         if (controlbit[0] == 1) {
             account = account + bet * 2;
             judge = true;
@@ -445,14 +481,11 @@ while (i < 21) {
         }
     }
     controlbit[0] = 0;
-    alert(account + "남은 잔액");
-    alert(maxgame-i+"남은 게임판수");
-    if (account <= 0) {
-        alert("게임끝낫습니다");
-    }
-if(account<=0 && (maxgame-i)<1)
+    gamecount();
+if(account<=1000 || (maxgame-i)<1)
     {
-        break;
+        i=21
+        alert("게임은 종료다.");
     }
 }
 
