@@ -450,8 +450,10 @@ while (i < 21) {
     if (account <= 0) {
         alert("게임끝낫습니다");
     }
-
-
+if(account<=0 && (maxgame-i)<1)
+    {
+        break;
+    }
 }
 
 
