@@ -484,7 +484,7 @@ while (i < 21) {
     gamecount();
 if(account<=1000 || (maxgame-i)<1)
     {
-        i=21
+        i=21;
         alert("게임은 종료다.");
     }
 }
