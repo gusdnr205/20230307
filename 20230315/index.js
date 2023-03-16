@@ -206,22 +206,6 @@ obj4.a(function (i) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //a1을 매개변수로 받는 콜백 함수 만들고 이 함수의 리턴값을 
 //익명함수의 매개변수로 적용하여 a1과a2의 중복아닌값을 return해주세요
 let a1 = [1, 2, 3, 4, 5];
@@ -269,3 +253,14 @@ obj5.b(function(index){
 
 
 
+
+const numbers = [1, 2, 3, 4, 5];
+
+let num10=[];
+
+num10=numbers.filter(function(i){
+    return i%2===1;
+    }
+);
+console.log(""+numbers);
+console.log("num10: "+num10);
