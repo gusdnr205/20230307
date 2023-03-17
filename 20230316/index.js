@@ -129,10 +129,10 @@ let obj ={
 // },2
 
 // )
-function temp4(){
+function temp4(a){
 
 }
-
+// temp4를 a실행 temp4 인자로 a function callback 매개변수에 들어감 a메소드 실행 후 callboack매개변수로 받아온 temp4 실행
 obj.a(
 temp4
 );

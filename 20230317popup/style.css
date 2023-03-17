@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.popup-wrap{
+    /* 브라우저 크기 vw 가로 */
+    /* 브라우저 크기 vh 세로 */
+    /* 100vw 보고있는 브라우저 창의 너비 %와비슷*/
+    /* 100vh 보고있는 브라우저 창의 높이 */
+    width: 100vw; 
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0 ,0.5);
+    display:none;
+}
+
+/*.popup-wrap 클래스와 .is-active 둘다 클래스를 가지고있을때 
+    .popup-wrap.is-active
+    자식이면 .popup-wrap .is-active
+    */
+.popup-wrap.is-active{
+    display: block;
+}
+
+
+.popup-wrap .popup-content{
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    /* 보고있는 브라우저 화면기준으로 위치를 맞출수있다. */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.popup-wrap .popup-content span{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid; */
+    /* 안보이면 블록속성이없는거다. */
+    display: block;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.popup-wrap .popup-content span::after,
+.popup-wrap .popup-content span::before{
+    content: '';
+    height: 4px;
+    width: 15px;
+    border-radius: 5px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.popup-wrap .popup-content span::before{
+    /* content: '';
+    height: 1px;
+    width: 15px;
+    background-color: black;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 505; */
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
