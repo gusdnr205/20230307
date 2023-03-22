@@ -99,6 +99,7 @@
 
     document.ondragover=function(e)
     { 
+        window.onload = function (e) {};
         if(e.target.classList.contains("box")&& _target !== null)
         {
             //preventDefault : 기본동작을 업애준다. 브라우저에서 기본적으로 동작하는 

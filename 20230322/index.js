@@ -104,7 +104,7 @@ console.log(_button.onclick);
 
 // load - 페이지와 기타 요쇼들의 그릴 준비 로딩이 끝났을때
 // on이 붙으면 어트리뷰트 방식
-window.onload = function () {};
+window.onload = function (e) {};
 // load 이벤트 구속시켜놓고
 // addEventListener("이벤트의 타입",함수의 내용)을사용해서
 // 이벤트를 구독해놓는다.
