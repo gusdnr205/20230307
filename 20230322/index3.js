@@ -58,7 +58,7 @@ function createCookie(name,value,time){
     //path=/ 페이지의 경로에대한 설정 쿠키를 다루는경로
     // toUTCString 메소드는 날짜 시간표시방법을 변경해준다.
     console.log(date.toUTCString());
-    document.cookie=name+"="+value+";expires"+";Max-Age"+date.toUTCString()+";path\/"
+    document.cookie=name+"="+value+";expires"+date.toUTCString()+";path\/"
 }
 // createCookie("이벤트 팝업","true","");
 createCookie("hello","worldc");
@@ -66,7 +66,7 @@ console.log(document.cookie);
 
 function getCookie()
 {
-    let value=document.cookie.split("=");
+    let value=document.cookie.split("="); // 키와 값분리
     console.log(value);
     return value[1];
 }
