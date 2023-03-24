@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+        }
+        .bigbox{
+            width: 350px;
+            height: 900px;
+            flex-wrap: wrap;
+        }
+        .bigbox >div{
+            width: 150px;
+            height: 100px;
+            border: 1px solid;
+
+        }
+    </style>
+</head>
+<body>
+    <label for="">todo</label>
+    <input type="text">
+    <label for="">날짜</label>
+    <input type="text">
+    <button id="Btnclicks">추가 </button>
+    <button id="BtnDeletes">삭제 </button>
+    <div id="_div"></div>    
+</body>
+<script>
+let count=0;
+    
+
+function Btnclick()
+{
+    let inputs= document.querySelectorAll("input"); //배열형태로 받아옴
+    let todolist=window.localStorage.getItem("todo");
+    count++;
+
+    console.log("이거 input아이템임")
+    console.log(inputs.item(0));
+    console.log(count);
+    console.log(inputs);
+    if(window.localStorage.length===0)
+    {
+        console.log("11");
+        window.localStorage.setItem("todo",`{"todolist1":"${inputs[0].value}", "date1":"${inputs[1].value}","${count}":"${count}"}`);
+    }else{
+        window.localStorage.setItem("todo",todolist+"|"+`{"todolist1":"${inputs[0].value}","date1":"${inputs[1].value}","${count}":"${count}"}`);
+    }
+    console.log(window.localStorage.getItem("todo"));
+    if(window.localStorage.length != 0)
+    {
+        console.log("123");
+        render();
+
+    }
+}
+
+function render(){
+    let _json = window.localStorage.getItem('todo');
+    // 문자열에서 "|" 문자열마다 잘라서 배열로 변경
+    _json = _json.split("|");
+    console.log(_json);
+    console.log("dd");
+    _div.innerHTML="";
+    let newp=document.createElement("p");
+    let newp2=document.createElement("p");
+    let bigDiv=document.createElement("div");
+    bigDiv.style.display = "flex";
+    bigDiv.setAttribute("class","bigbox");
+    bigDiv.setAttribute("id","haha");
+    console.log(bigDiv);
+    newp.innerHTML="todo";
+    newp2.innerHTML="date"
+    console.log(newp);
+
+    let me = document.getElementById("_div");
+    _div.append(bigDiv);
+    bigDiv.append(newp);
+    bigDiv.append(newp2);
+    _json.forEach(function(i){
+
+            let _div3 = document.createElement("div");
+            _div3.setAttribute("id",JSON.parse(i).count);
+            let _div4 = document.createElement("div");
+            _div4.setAttribute("id",JSON.parse(i).count);
+            console.log(_div3);
+            _div3.innerHTML = JSON.parse(i).todolist1;
+            _div4.innerHTML = JSON.parse(i).date1;
+            bigDiv.append(_div3,_div4);
+    }
+    )
+}
+let co=0;
+function BtnDelete(){
+    
+    window.localStorage.removeItem('5');
+    let _json = window.localStorage.getItem('todo');
+    // 문자열에서 "|" 문자열마다 잘라서 배열로 변경
+    _json = _json.split("|");
+    
+    let p1 = document.getElementById(`${count}`); // 삭제대상
+    let p2 =document.getElementById("haha");
+    co++;
+    
+    console.log("이거부모노드임");
+    console.log(p2);
+    console.log("삭제될 노드임");
+    console.log(p1);
+    p2.removeChild(p1);
+    if(co%2==0)
+    {
+        
+        console.log("21123123");
+        count--;    
+        console.log(count)
+    }
+    
+ 
+
+    render();
+
+
+}
+
+
+Btnclicks.addEventListener("click", Btnclick);
+BtnDeletes.addEventListener("click",BtnDelete);
+
+
+
+</script>
+</html>

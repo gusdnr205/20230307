@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        .box-content{
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: aqua;
+            transition: 1s /*동적인게생길때 1초동안변한게*/    
+        }
+
+        .is_active{
+            left: 0;
+            opacity: 1;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box_content"></div>
+    </div>
+    <div class="box">
+        <div class="box_content"></div>
+    </div>
+    <div class="box">
+        <div class="box_content"></div>
+    </div>
+    <div class="box">
+        <div class="box_content"></div>
+    </div>
+    
+    
+</body>
+<script>
+    let posY={};
+    function init(){
+        _boxContents.foreach(function(i){
+            //top값들은 모두 
+        posY.push(i,getBoundingClientRect().top-window.pageYOffset);
+        }}
+    let _boxContents = document.querySelectorAll('.box_content');
+    console.log(_boxContents[0]);
+
+    //getBoundingClientRect(): 태그의 사각면을 구할수있다.
+    // 반환된 객체의 값이 top left bottom right 
+    // top
+    console.log(_boxContents[0].getBoundingClientRect().top +  ); //bottom left right 다있음
+    console.log(_boxContents[1].getBoundingClientRect().top +  ); //bottom left right 다있음
+    console.log(_boxContents[2].getBoundingClientRect().top +  ); //bottom left right 다있음
+    console.log(_boxContents[3].getBoundingClientRect().top +  ); //bottom left right 다있
+    window.onscroll= function(){
+        console.log(window.scrollY);
+        
+        console.log("스크롤되고있니");
+        //페이지를 스크롤 하면서 브라우저의 제일 맡의 기준으로바꾸면?
+        //브라우저의 높이를 더해주면 제일밑단을 기준으로 변경할수있다
+        // 브우저의 밑을 기준으로 스트ㅗㄹ의 합을 구할수있다
+        let_scroll = wind+innerHeight;
+        
+    }
+
+    window.onresize= function(){
+        console.log(window.innerHeight());    
+    }
+    
+</script>
+</html>
