@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cube Swipe</title>
+    <style>
+        .cube-container {
+            perspective: 1000px;
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .side {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid white;
+            box-sizing: border-box;
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="cube-container">
+        <div class="cube">
+            <div class="side front">Front</div>
+            <div class="side back">Back</div>
+            <div class="side right">Right</div>
+            <div class="side left">Left</div>
+            <div class="side top">Top</div>
+            <div class="side bottom">Bottom</div>
+        </div>
+    </div>
+
+    <script>const cube = document.querySelector('.cube');
+
+        let currentX = 0;
+        let currentY = 0;
+        let initialX;
+        let initialY;
+        let xDiff = 0;
+        let yDiff = 0;
+
+        function handleTouchStart(event) {
+            initialX = event.touches[0].clientX;
+            initialY = event.touches[0].clientY;
+        }
+
+        function handleTouchMove(event) {
+            if (initialX === null || initialY === null) {
+                return;
+            }
+
+            xDiff = event.touches[0].clientX + initialX;
+            yDiff = event.touches[0].clientY + initialY;
+
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                cube.style.transform = `rotateY(${currentX - xDiff}deg)`;
+            } else {
+                cube.style.transform = `rotateX(${currentY + yDiff}deg)`;
+            }
+
+            event.preventDefault();
+        }
+
+        function handleTouchEnd() {
+            currentX -= xDiff;
+            currentY += yDiff;
+            initialX = null;
+            initialY = null;
+            xDiff = 0;
+            yDiff = 0;
+        }
+
+        cube.addEventListener('touchstart', handleTouchStart);
+        cube.addEventListener('touchmove', handleTouchMove);
+        cube.addEventListener('touchend', handleTouchEnd);
+    </script>
+</body>
+
+</html>

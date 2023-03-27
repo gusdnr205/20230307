@@ -14,7 +14,7 @@ function popupOpen(){
 popupBtn.addEventListener("click",popupOpen);
 
 
-popupEvent.addEventListener("click",function(){
+popupEvent.addEventListener("click",function(){ // eventbtn 누를때 발동 
     console.log('이벤트');
     // 쿠키 추가
     // 하루동안 유지되는 쿠키 생성.
@@ -50,10 +50,10 @@ function getCookie(c_name)
 }
 
 function setCookie(c_name,value,time){
-    let date = new Date();
+    let date = new Date(); //Date라는 생성자 객체안에 다양한 메소드있음 그걸 new를 통해서 메모리를 새로할당한후 date에 연결시켜줌
     date.setTime(date.getTime() + time * 1000);
 
-    let str = c_name+"="+value+";expires="+date.toUTCString()+";path=/";
+    let str = c_name+"="+value+";expires="+date.toUTCString()+";path=/"; 
     let str2 = getCookieTime(str);
     // 문자열로 데이터를 저장하는데
     // 값이 여러개일경우
@@ -135,7 +135,8 @@ let setTime = setInterval(() => {
         console.log(date);
         console.log(date2);
         console.log(popupTime(date,date2));
-        timeTag.innerHTML = times(popupTime(date, date2));
+        timeTag.innerHTML = times(popupTime(date, date2)); // date는 시간초가 더해진  미래의 시간이고 date2는 현재의 시간이다 
+                                                        //popupTime은 첫번째 매개변수에서 두번째 매개변수를빼준다
     }else{
         timeTag.innerHTML = "시간끝";
     }
