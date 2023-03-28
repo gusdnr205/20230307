@@ -122,12 +122,12 @@ _next.addEventListener("click", function () {
       if(asd.classList.contains("is-active")){
   
       }else{
-          asd.classList.add("is-active");
+          asd.classList.add("is-active"); //트랜지션을 꺼주는 코드 움직임이 사라진다.
       }
       
       // set the start and end values for the animation
       let start = 0;
-      let end = -(_index * _swiperWidth);
+      let end = -(_index * _swiperWidth); //-500
       let current = start;
       
       // set the duration and interval for the animation
@@ -135,14 +135,14 @@ _next.addEventListener("click", function () {
       let interval = 10; // 10 milliseconds
       
       // calculate the increment value for each interval
-      let increment = (end - start) / (duration / interval);
+      let increment = (end - start) / (duration / interval); //-500+0 / (1000/10) -500/100 -5
       
       // create the animation loop
       let animation = setInterval(function() {
-        current += increment;
-        _swiperContent.style.left = current + "px";
-        if (current <= end) {
-          clearInterval(animation);
+        current += increment; // 0+(-5)
+        _swiperContent.style.left = current + "px"; //setinterval로 애니메이션처럼 보이게 만든것이지 트랜지션이 아님;
+        if (current <= end) { //0 ~ -500<=-500
+          clearInterval(animation);  
           asd.classList.remove("is-active");
           _swiperContent.style.left = end + "px";
         }
@@ -152,4 +152,4 @@ _next.addEventListener("click", function () {
 );
 
 
-//5123451 5에서 1갈때 모션삭제해서 1번간다음 앞의 1뒤에 다음페이지 만들고 다시 isactive 때고 강제로 이동하는 이벤트 발생 그뒤에 다음페이지를 삭제한다. 
+//412341 5에서 1갈때 모션삭제해서 1번간다음 앞의 1뒤에 다음페이지 만들고 다시 isactive 때고 강제로 이동하는 이벤트 발생 그뒤에 다음페이지를 삭제한다. 
