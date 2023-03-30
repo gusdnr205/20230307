@@ -120,12 +120,14 @@
                     console.log(user.money);
                     document.querySelector('.playermoney').innerHTML = "소지금 : " + user.money;
                     document.querySelector('.commoney').innerHTML = "com소지금 : " + com.money;
+                    alert("컴 배팅완 플레이어 배팅하십시오");
                     init();
                 } else if (item === "hard") {
                     user.money = 50000;
                     console.log(user.money);
                     document.querySelector('.playermoney').innerHTML = "소지금 : " + user.money;
                     document.querySelector('.commoney').innerHTML = "com소지금 : " + com.money;
+                    alert("컴 배팅완 플레이어 배팅하십시오");
                     init();
                 } else if (item === "veryhard") {
                     user.money = 10000;
@@ -133,6 +135,7 @@
                     console.log(user);
                     document.querySelector('.playermoney').innerHTML = "소지금 : " + user.money;
                     document.querySelector('.commoney').innerHTML = "com소지금 : " + com.money;
+                    alert("컴 배팅완 플레이어 배팅하십시오");
                     init();
                 }
             })
@@ -168,12 +171,17 @@
                     document.querySelector('.commoney').innerHTML = "com소지금 : " + (com.money - rndcombet);
                     com.money = com.money - rndcombet;
                     document.querySelector('.combetmoney').innerHTML = "com의 배팅금액 : " + rndcombet;
+                    alert("승자가 결정났습니다.");
+                    alert("컴퓨터의 배팅이 끝났습니다.");
+                    alert("플레이어도 배팅을진행해주십시오");
+                    
                 }
                 if(user.money<0 || com.money<0)
                 {
                     alert("game done");
                 }
-            })
+            }
+            )
         }
         )
 
@@ -228,7 +236,7 @@
             user.win = 1;
             com.win = 0;
             //여기서 이기는 조건을만들어보자
-            return { value: "내가성공 컴퓨터후공", text: "ㄱ~" }
+            return { value: "내가 선공 컴퓨터후공", text: "ㄱ~" }
         } else {
             depth++;
             console.log(depth);
