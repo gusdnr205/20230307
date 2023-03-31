@@ -24,10 +24,10 @@ try {
 function myStr(){
     let devValue = document.querySelector('.dev').value;
     try {
-        if(devValue=="") throw"비었음dd!";
+        if(devValue=="") throw"비었음!";
         devValue=Number(devValue);
         console.log(isNaN(devValue));
-        // number 숫자로 타입을 변경해주는 새성자 함수.
+        // number 숫자로 타입을 변경해주는 생성자 함수.
         if(isNaN(devValue))throw "number가 아님"
         //문자열이 들어가면 문자가 숫자로 변화될수있어서
         // num가 아니다.
@@ -38,9 +38,11 @@ function myStr(){
         // catch 문을 실행하고 오류의내용은 
         //error 매개변수에 들어온다.
 
+
         console.log(typeof devValue);
         console.log(devValue);
         document.querySelector(".message").innerHTML=error;
+        console.log()
         
     }
 }
