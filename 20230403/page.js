@@ -38,7 +38,9 @@ window.addEventListener("scroll", function (e) {
     dd[1].classList.remove("image-fix2");
   }
   if (this.window.scrollY > 3930) {
-    document.querySelector(".readlMain").style = "display:none";
+    // document.querySelector(".readlMain").style = "display:none";
+    location.href="#aa";
+    console.log("응애");
   }
 });
 
@@ -153,7 +155,7 @@ window.onscroll = function () {
   if ((posY < window, scrollY)) {
     document.querySelector(".header").classList.add("isActive");
   } else {
-    document.querySelector(".header").classList.re("isActive");
+    document.querySelector(".header").classList.remove("isActive");
   }
 };
 
