@@ -7,11 +7,18 @@ let img1 = document.querySelector(".img1");
 
 let fix = document.querySelectorAll(".image-fix");
 
-tNav.addEventListener("scroll", function (event) {});
+let asdsad=location.href
+let asdsad2=location.href
+let asdmmm=true;
+let dd;
+dd = document.querySelectorAll(".imagess");
+
+
 
 window.addEventListener("scroll", function (e) {
-  console.log(window.scrollY);
-  let dd;
+  // console.log(this.location.href);
+   console.log(window.scrollY);
+ 
   if (this.window.scrollY > 75) {
     console.log("dd");
     this.setTimeout(function () {
@@ -24,23 +31,66 @@ window.addEventListener("scroll", function (e) {
     }
   }
   if (1030 < this.window.scrollY) {
-    fix[0].classList.remove("image-fix");
-    fix[1].classList.remove("image-fix");
+    fix[0].classList.add("hidden");
+    fix[1].classList.add("hidden");
+    this.setTimeout(function(){
+      fix[0].classList.remove("image-fix");
+      fix[1].classList.remove("image-fix");
+    },500);
+  
+  } else {
+    fix[0].classList.add("image-fix");
+    fix[1].classList.add("image-fix");
+    fix[0].classList.remove("hidden");
+    fix[1].classList.remove("hidden");
   }
-  if (this.window.scrollY > 1942) {
-    dd = document.querySelectorAll(".imagess");
+  if (this.window.scrollY > 1942 && this.window.scrollY<2000) {
+
     dd[0].classList.add("image-fix2");
     dd[1].classList.add("image-fix2");
   }
-  if (this.window.scrollY > 2990) {
+
+  if (this.window.scrollY > 2990 && this.window.scrollY<3100) {
     console.log("나 발동됌!");
+    dd[0].classList.add("hidden");
+    dd[1].classList.add("hidden");
+
+    this.setTimeout(function(){
+      dd[0].classList.remove("image-fix2");
+      dd[1].classList.remove("image-fix2");
+      dd[0].classList.remove("hidden");
+      dd[1].classList.remove("hidden");
+    },500)
+  }else if(this.window.scrollY < 1900 && this.window.scrollY>=1800)
+  {
+    dd[0].classList.remove("hidden");
+    dd[1].classList.remove("hidden");
     dd[0].classList.remove("image-fix2");
     dd[1].classList.remove("image-fix2");
+    console.log("haahh");
   }
-  if (this.window.scrollY > 3930) {
+  if(this.window.scrollY < 2900 && this.window.scrollY  >2700){
+    dd[0].classList.add("image-fix2");
+    dd[1].classList.add("image-fix2");
+  } 
+
+  if (this.window.scrollY > 3930 && asdmmm===true) {
     // document.querySelector(".readlMain").style = "display:none";
-    location.href="#aa";
-    console.log("응애");
+    // if(this.location.href!=asdsad+"#aa"){// http://127.0.0.1:5500/20230403/page.html#aa
+
+      window.scroll({top : document.querySelector('#aa').offsetTop});
+    
+      // location.href="#aa";
+      // console.log(this.location.href);
+      console.log("응애");
+      asdmmm=false;
+      console.log(asdmmm);
+
+
+      // this.location=asdsad2;
+
+      // console.log( this.location.href);
+    // }
   }
 });
 
