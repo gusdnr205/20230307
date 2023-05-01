@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입</title>
+</head>
+<body>
+    
+    <label for="">이메일</label>
+    <input type="text" class="user_id">
+
+    <label for="">비밀번호</label>
+    <input type="text" class="user_pw">
+    <button class="sign_up">회원가입</button>
+    <p class="text"></p>
+</body>
+<script>
+    let signBtn = document.querySelector('.sign_up');
+    function isEmail(asValue){
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(asValue);
+
+    }
+    // test메소드로 검사갷서 정규식 형식이맞으면 true 아니면 false 반환
+    
+    function isPassword(asValue){
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=[\]{}|\\,.?>;:'"\/\-]).{8,}$/;
+        return passwordRegex.test(asValue);
+    }
+    signBtn.onclick =function(){
+        console.log("클릭");
+        let user_id= document.querySelector('.user_id').value;
+        let user_pw=document.querySelector('.user_pw').value;
+        console.log(user_id,"    ",user_pw);
+        console.log("이메일 : ",isEmail(user_id));
+        console.log("비밀번호 :",isPassword(user_pw));
+        if(!isEmail(user_id) || !isPassword(user_pw))
+        {
+            document.querySelector('.text').innerHTML ="아이디 비밀번호를 확인하세요"
+        
+        }
+        else{
+            document.querySelector('.text').innerHTML ="여기는 nodejs 비밀번호를 확인하세요"
+
+        }
+    }
+    
+</script>
+</html>
