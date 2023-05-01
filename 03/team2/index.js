@@ -9,7 +9,7 @@ function temp() {
 
        setInterval(() => {
          runFunc();
-       }, 350); //고정된시간동안 반복실
+       }, 800); //고정된시간동안 반복실
     console.log(heading.dataset.title.length);
     let b = heading.dataset.title.length;
  
@@ -50,7 +50,7 @@ function addElement() {
   newDiv.setAttribute("class", "maincutbox");
   //    newDiv.innerHTML=newh1.setAttribute("data-title");
   //    let newContent = document.createTextNode("<h1></h1>");
-  newh1.setAttribute("data-title", "무헌과싸움이다");
+  newh1.setAttribute("data-title", "현욱의 문단속");
   newh1.setAttribute("class", "heading");
   newButton.setAttribute("onclick", "nextstage();");
   newButton.setAttribute("class", "next");
