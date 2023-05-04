@@ -46,7 +46,7 @@ const mysql= require("mysql2");
 const temp = mysql.createConnection({
     user : "root",
     password : "gusdnr2ekt",
-    database : "test6"
+    database : "test1"
 
 
 });

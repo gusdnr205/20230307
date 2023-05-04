@@ -81,7 +81,8 @@ app.use(express.urlencoded({extended:false}));
 const _mysql = mysql2.createConnection({
     user : "root",
     password :"gusdnr2ekt",
-    database : "test6"
+    database : "test1",
+    host: "127.0.0.1"
 })
 
 _mysql.query("SELECT * FROM products",(err,res)=>{
