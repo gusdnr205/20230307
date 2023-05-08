@@ -44,6 +44,8 @@ const _mysql = mysql2.createConnection({
 // view엔진이 템플릿 파일을 보여주는 역활을 해줌
 // 기본값은 views: 'C:\\Users\\KGA\\Desktop\\20230504\\views'로 경로가 지정되어있고
 app.set("views",path.join(__dirname,"page"));
+// express  를 받아온 객체 app의 요소중에 설정을 하는 함수인 set 이있고 이를통해 view 옵션에 접근할수있다.
+// 추가로 view engine옵션역시 당연히 view안에 있을것으로 여겨지나 view와 같이 바로 볼수없다. 다만 default engine 으로 있긴하다는것을 확인할수는있다.
 // console.log(app);
 // views: 'C:\\Users\\KGA\\Desktop\\20230504\\page' 우리가 설정할 경로로 바꿀수 있다.
 
@@ -179,12 +181,6 @@ app.post('/edit/:id',(req,res)=>{
 })
 // PORT를 지정 해야하니까
 const PORT = 8080;
-
-
-
-
-
-
 
 
 
