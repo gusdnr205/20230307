@@ -1,5 +1,6 @@
 const mysql=require("./config");
 
+console.log(mysql);
 // console.log(mysql)
 // 글의 내용 작성
 // 수정 추가 삭제

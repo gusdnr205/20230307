@@ -42,6 +42,9 @@ router.get('/insert',(req,res)=>{
 
 //게시글 추가 요청이 들어오면
 router.post('/insert',async (req,res)=>{
+    console.log(req);
+    console.log("dd");
+    // console.log(res);
     try {
         await Insert(req,res);
         res.redirect("/posts");
@@ -73,6 +76,7 @@ router.post('/edit/:id',async(req,res)=>{
 
 //게슬 삭제 처리 
 router.get('/delete/:id',async (req,res)=>{
+    console.log("이놈임");
     console.log(req.params)
     try {
         await Delete(req,res);

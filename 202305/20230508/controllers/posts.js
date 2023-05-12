@@ -37,6 +37,7 @@ exports.Insert = async function(req,res){
     }
 }
 
+
 // 게시글 수정 
 exports.Update = async function(req,res){
     const {id}= req.params;
