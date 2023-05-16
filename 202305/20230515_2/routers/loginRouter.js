@@ -2,6 +2,8 @@ const { Login, verifyLogin } = require("../controllers/usersController");
 
 const router=require("express").Router();
 
+
+// login/ 경로
 router.get("/",(req,res)=>{
     console.log("asd");
     res.render("login");
