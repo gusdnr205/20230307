@@ -73,6 +73,7 @@ exports.verifyLogin =async (req,res,next)=>{
     // next();
     // res.send("여기서 끝");
     //세션값을가져오고
+    
     const {access_token,refres_token} =req.session;
     jwt.verify(access_token,process.env.ACCESS_TOKEN_KEY,(err,acc_decoded)=>{
         if(err){
