@@ -16,7 +16,8 @@
 -- mongodb
 
 --CLI 로 mydwl에 접속방법
--- mysql  -u -root - p
+-- **** 이슈 : root 앞에는 - 안붙음 ****
+-- mysql  -u root - p
 -- 비밀번호 입력
 
 -- show databases
@@ -43,6 +44,7 @@ DROP DATABASE testmysql;
 --사용할 데이터베이스 지정
 USE testmysql;
 
+SHOW DATABASES;
 -- 데이터 베이스 안에있는 테이블확인
 SHOW TABLES;
 
@@ -176,7 +178,7 @@ SELECT *FROM boarder WHERE id=1;
 -- ALTER TABLE [테이블 이름] AUTO_INCREMENT = 0.1: 해당 테이블의 AUTO_INCREMENT 를 초기화 시켜준다.
 -- ALTER TABLE [테이블 이름] ADD [필드이름] TYPE: 해당 테이블 맨뒤로 필드를 추가한다 
 -- ALTER TABLE [테이블 이름] ADD [필드이름] TYPE FIRST: 해당 테이블 맨앞에 필드를 추가한다 
-
+-- SELECT *FROM [테이블 이름] ORDER BY[필드이름] DESC 나 ASC 필드명기준 내림차순 ASC가 오름차순으로 정렬
 
 CREATE TABLE user(
     id INT AUTO_INCREMENT PRIMARY key,
