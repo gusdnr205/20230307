@@ -20,7 +20,6 @@ db.Post=Post;
 
 //테이블을 초기화하는 부분 
 const le=User.init(_sdequelize);
-console.log(typeof le);
 Post.init(_sdequelize);
 User.associate(db);
 Post.associate(db);
