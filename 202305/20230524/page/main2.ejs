@@ -31,6 +31,7 @@
                 <p>${data.data}</p>
             </li>
             `
+            content.innetHtml=el;
         })
         btn.onclick=()=>{
             socket.emit("message",{

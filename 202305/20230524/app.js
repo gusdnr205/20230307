@@ -30,6 +30,11 @@ const path= require("path");
 
 app.set("views",path.join(__dirname,"page"))
 app.set("views","ejs");
+
+
+app.get('/',(req,res)=>{
+    res.render("main");
+})
 app.listen(4000, ()=>{
     console.log("잘열림")
 })
