@@ -18,7 +18,11 @@ class User extends Sequelize.Model{
             user_pw:{
                 type:Sequelize.STRING(64),
                 allowNull:true
-            }
+            },
+            user_profile:{
+                type:Sequelize.STRING(128),
+                allowNull:true
+            },
         },{
             sequelize:seq,
             timestamps:true, // 추가수정시간 자동생성

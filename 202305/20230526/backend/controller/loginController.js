@@ -22,6 +22,7 @@ exports.login = async (req, res) => {
                 
             });
             req.session.access_token=token;
+            req.session.name=user.name;
             // " / : "여기서 경로는 백엔드의 도메인 경로 루트 
             // 때문에 프론트의 경로를 작성해주자
             // 이렇게 리다이렉트를 할게아니면 프론트에서 응받 받은 값으로

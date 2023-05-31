@@ -21,6 +21,8 @@ const loginrouter= require("./routers/login");
 const signuprouter= require("./routers/signup");
 const writeController=require("./routers/write");
 const {sequelize}=require("./models");
+const uploadRouter = require("./routers/upload");
+const path = require("path");
 
 // 노드모듈이랑 팩제이슨이 밖에있다면 백엔드폴더안에 위치 시킨뒤 터미널에서 cd backend를 이용해서 접근한다.
 // 그냥 접근하면 Access to XMLHttpRequest at 'http://127.0.0.1:4000/' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
@@ -59,6 +61,15 @@ app.use(cors({
 app.get("/",(req,res)=>{
     res.send("응답함");
 })
+// console.log(" 경로",path.join(__dirname, "uploads"));
+app.use("/img", express.static(path.join(__dirname, "uploads")))
+
+// 요청과 응답에서 json 형식의 데이터를 전달 받았을 때
+// 요청과 응답에서 json 파싱을 해서 자바스크립트 객체로 변환시켜주는 미들웨어
+// json메서드로 json파싱
+app.use(express.json());
+app.use("/upload", uploadRouter);
+
 
 app.use('/signup',signuprouter);
 app.use('/login',loginrouter);

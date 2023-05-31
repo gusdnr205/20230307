@@ -3,7 +3,9 @@ const bcrypt = require("bcrypt");
 
 exports.signUp=async (req,res)=>{
     try {
-        const {name,age,user_id,user_pw} = req.body;
+        const {name,age,user_id,user_pw,imgs} = req.body;
+        console.log("이거 reqbody임",req.body)
+
         const user = await User.findOne({where:{user_id}});
         if(user!=null)
         {
