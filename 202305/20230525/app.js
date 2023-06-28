@@ -28,7 +28,8 @@ io.on("connection",(socket)=>{
     console.log(socket.id);
     console.log(userid);
     
-
+    // 고유식별자를 가진 socket가 userw 이벤트를 입력받았을때 name을 배열 username안에 저장한다. 그리고 다시 서버는
+    // 클라이언트 이벤트 userw로 username userid 배열을 반환해준다. 
     socket.on("userw",(name)=>{
         username.push(name);
         io.sockets.emit("userw",username,userid);

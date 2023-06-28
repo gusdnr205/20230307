@@ -11,7 +11,7 @@
 
 // 웹호스팅 업체중 하나인 aws 통해서 서브를 배포 할것.
 
-// lass : 컴퓨터 자원만 제공하는 형태 (aws) infrastucture as as service
+// iass : 컴퓨터 자원만 제공하는 형태 (aws) infrastucture as as service
 // pass : 헤로쿠 등 넷플리파이 등등 기존환경에서 서비스를 올려주는 형태
 
 // 인스턴스 만들기 전에 오른쪽 상단에 리전확인 서버컴퓨터가 가깝게 설정
@@ -61,5 +61,34 @@
 
 //sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf;
 // 파일을 열고 i 눌러서 수정모드 진입
+// esc 눌러서 풀고
+//:wq! 저장후 종료
+//:q!: 종료
+//:w!: 강제정장
 
+// 프로젝트를 설치받자
+// git에 올린다음
 
+// 포트 포워딩을 해서 포트 80 http 로 접속했을때 8080포트로 재 매핑 시켜주자
+// sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080;
+// --dport 80 접속했을때 --to-port 8080 이포트로 재매핑
+// 포트포워딩 확인 명령어
+// sudo iptables -t nat -L --line-numbers
+
+// 포트 포워딩 삭제 명령어
+// sudo iptables -t nat -D PREROUTING 인덱스 번호/
+
+//http 80번포트
+// https: 443포트
+
+//그리고 서버대기가 종료되는데
+// 백그라운드에서 서버를 대기 시켜서 계속 동작하게
+// pm2 설치
+// npm i pm2 
+// package.json 부분에서 실행스크립트 명령어를 node app.js로 실행했을텐데
+// pmt2 start app.js로 수정하면된다.
+// 서버가 종료되어도 백그라운드에서 노드서버실행
+// 서버종료는 npx pm2 kill : 종료
+// 리스트 확인 npx pm2 list : 리스트
+
+// vi package.json
