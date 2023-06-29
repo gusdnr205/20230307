@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <!-- 바벨? -->
+  <!-- babel을 가져와서 jsx문법을 사용 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    class Clock extends React.Component {
+        constructor(props){
+            super(props);
+            this.state={
+                Time: new Date().toLocaleTimeString()
+            }
+        }
+
+        // 최초의 해야할 동작이있다면 didmount 에서해라 그이후의 것은 didupdate에서 해라
+        componentDidMount(){
+            // 여기 내용이 컴포넌트가 생성되면 호출됨 딱 최초에 한번
+            setInterval(() => {
+                this.setState({Time:new Date().toLocaleTimeString()});
+            }, 1000);
+            console.log("최초에 한번 실행되었다.")
+        }
+
+        componentDidUpdate(){
+            console.log("스테이트 업데이트 됨~");
+        }
+
+        render(){
+            return(
+                <>
+                    <h1>아뇽 내 컴퓨터 시간</h1>
+                    <h2>time : {this.state.Time}</h2>
+                </>
+            )
+        }
+        // react 생명주기 
+        // 생명주기 
+        // 화면이 그려지는 시기와 state 값이 변했을때 동작해야하는 작업이 있을경우
+        // 이런부분을 제어할수있게 리액트에서 만들어준 lifectcle 함수가있다. 리액트의 삶이다.
+    }
+    const root = ReactDOM.createRoot(document.querySelector("#root"));
+    root.render(<Clock />);
+</script>
+</html>

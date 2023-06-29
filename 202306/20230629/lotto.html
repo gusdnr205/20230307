@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function getRandomNumber() {
+          return Math.floor(Math.random() * 100) + 1;
+        }
+
+        class Drawing extends React.Component {
+          render() {
+            return (
+              <h2>{this.props.number}</h2>
+            );
+          }
+        }
+
+        class Shownum extends React.Component {
+          render() {
+            const { numbers } = this.props;
+            return (
+              <div>
+                {numbers.map((num, index) => (
+                  <Drawing key={index} number={num} />
+                ))}
+              </div>
+            );
+          }
+        }
+
+        class GetNewRandNum extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              numbers: []
+            };
+          }
+
+          handleClick = () => {
+            const newNumber = getRandomNumber();
+            this.setState((prevState) => ({
+              numbers: [...prevState.numbers, newNumber]
+            }));
+          };
+
+          render() {
+            return (
+              <div>
+                <button onClick={this.handleClick}>Generate Random Number</button>
+                <Shownum numbers={this.state.numbers} />
+              </div>
+            );
+          }
+        }
+
+        class App extends React.Component {
+          render() {
+            return (
+              <GetNewRandNum />
+            );
+          }
+        }
+
+        const root = ReactDOM.createRoot(document.querySelector("#root"));
+        root.render(<App />);
+    </script>
+</body>
+</html>

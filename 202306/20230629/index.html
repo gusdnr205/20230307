@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel? -->
+    <!-- import babel and use jsx syntax -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+
+    // Component to be commented on
+    class CommentItem extends React.Component {
+        constructor(props) {
+            super(props)
+        }
+        render() {
+            return (
+                //In ReactDom, the attribute class used in html is changed to className.
+                <ul className="">
+                    <li>{this.props.userid}</li>
+                    <li>{this.props.content}</li>
+                    <li>{this.props.date}</li>
+                </ul>
+            )
+        }
+    }
+
+    class CommentForm extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                // I will put the input value as the status value in the value input to send to the form
+                value: ""
+            }
+            this.changeHandler = this.changeHandler.bind(this)
+            this.submitHandler = this.submitHandler.bind(this)
+        }
+
+        // function to process the input
+        changeHandler(e) {
+            // destructuring and assigning the value of the input
+            const { value } = e.target;
+            this.setState({
+                ...this.state,
+                value
+            })
+        }
+
+        // Function to process input if input is given
+        submitHandler(e) {
+            // block refresh event
+            e.preventDefault();
+            // Where to add comments
+            this.props.create(this.state.value);
+            // Where to initialize the state value again
+            this.setState({ value: "" });
+        }
+
+        render() {
+            return (
+                <li>
+                    <form onSubmit={this.submitHandler}>
+                        <h4>Comment <span> : {this.props.length}</span></h4>
+                        <span>
+                            <input type="text" onChange={this.changeHandler} value={this.state.value} />
+                        </span>
+                        <input type="submit" value="register" />
+                    </form>
+                </li>
+            )
+        }
+    }
+
+    // Component to draw the tag lists
+    class CommentList extends React.Component {
+        constructor(props) {
+            super(props)
+        }
+
+        loop(value, index) {
+            // key improves performance when React identifies the element
+            return <CommentItem key={index} userid={value.userid} content={value.content} date={value.date} />
+        }
+
+        render() {
+            return <li>{this.props.items.map(this.loop)}</li>
+        }
+    }
+
+    // Component responsible for comment function
+    class Comment extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                comment: [
+                    // add new post
+                    {
+                        userid: "huyn",
+                        content: "Hello Comment #1",
+                        date: "2023/06/29"
+                    },
+                    {
+                        userid: "huyn",
+                        content: "Hello comment number 2",
+                        date: "2023/06/29"
+                    }
+                ]
+            }
+            this.create = this.create.bind(this);
+        }
+
+        create(content) {
+            // use bind to keep the context
+            this.setState({ comment: [{ userid: "hyun", content: content, date: "2023/06/29" }, ...this.state.comment] })
+        }
+
+        render() {
+            return (
+                <ul>
+                    {/*Comment form */}
+                    <CommentForm create={this.create} length={this.state.comment.length} />
+                    {/* Where to show the list of comments */}
+                    <CommentList items={this.state.comment} />
+                </ul>
+            )
+        }
+    }
+
+    // page component
+    class App extends React.Component {
+        render() {
+            return (
+                <div>
+                    {/* Get the comment layout component */}
+                    <Comment />
+                </div>
+            )
+        }
+    }
+
+    const root = ReactDOM.createRoot(document.querySelector('#root'));
+    root.render(<App />)
+</script>
+
+</html>

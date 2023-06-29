@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- 바벨? -->
+    <!-- babel을 가져와서 jsx문법을 사용 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+
+
+</body>
+<script  type="text/babel">
+    // 리액트 컴포넌트에는 상태와 속서이있다.
+    class TEXT extends React.Component{
+        constructor(props){
+            super(props);
+            console.log(props);
+        }
+        render(){
+            return <h2>{
+                this.props.text
+            }</h2>
+        }
+    }
+    class LoginBtnText extends React.Component{
+        constructor(props){
+            super(props);
+            console.log(props);
+
+        }
+        
+        render(){
+            console.log(this.props.flag);
+            // TEXT의 속성값이 props로 전달된다. 
+            // this.props.flag 조건부 렌더링
+            // 속성이름으로 props에 전달하는 객체의 키값으로 전달된다.
+            // props = {text: "로그아웃"}
+            return this.props.flag ? <TEXT text="로그아웃"></TEXT> : <TEXT text="로그인"></TEXT>
+
+        }
+    }
+    class LoginBtn extends React.Component{
+        constructor(props)
+        {
+            super(props);
+            this.state ={
+                isLogin : false
+            }
+            console.log(props);
+
+            // bind 메서드로 바인딩하면 함수 호출할때 컨텍스트를 유지할수있다. 
+            // 리액트에서 유용하게 쓸수있다 그러면 constructor에 접근하는지 궁금?
+            this.handleClick = this.handleClick.bind(this); 
+        }
+        handleClick(){
+            console.log("눌림");
+            this.setState({isLogin : ! this.state.isLogin})
+            console.log("this.state",this.state);
+        }
+        render(){
+            return (<button onClick={this.handleClick
+                
+            }>
+            <LoginBtnText flag={this.state.isLogin}/>
+                
+            </button>)
+        }
+    }
+    class App extends React.Component{
+        constructor(props)
+        {
+            super(props)
+            this.state={
+                isLogin:false
+            }
+      
+        }
+        render(){
+                return(<>
+                <TEXT text="로그인 레이아웃"></TEXT>
+                <LoginBtn/>
+                </>)
+            }
+
+    }
+    // 루트요소 생성
+
+    const root = ReactDOM.createRoot(document.querySelector("#root"));
+    root.render(<App/>);
+</script>
+
+</html>
