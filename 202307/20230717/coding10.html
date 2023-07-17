@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flexbox {
+        display: flex;
+    }
+
+    div {
+        width: 500px;
+        height: 150px;
+        border: 1px solid;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div id="calc"></div>
+        <div class="flexbox">
+            <div id="ac">ac</div>
+            <div id="divide">/</div>
+        </div>
+        <div class="flexbox">
+            <div id="7">7</div>
+            <div id="8">8</div>
+            <div id="9">9</div>
+            <div id="multiply">x</div>
+        </div>
+        <div class="flexbox">
+            <div id="4">4</div>
+            <div id="5">5</div>
+            <div id="6">6</div>
+            <div id="sub">-</div>
+        </div>
+        <div class="flexbox">
+            <div id="1">1</div>
+            <div id="2">2</div>
+            <div id="3">3</div>
+            <div id="add">+</div>
+        </div>
+        <div class="flexbox">
+            <div id="0">0</div>
+            <div id="dot">.</div>
+            <div id="results">=</div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let calc = document.getElementById("calc");
+    let add = document.getElementById("add");
+    let result = document.getElementById("results");
+    for (let i = 0; i < 10; i++) {
+        let num = document.getElementById(`${i}`);
+        console.log(num)
+        num.addEventListener("click", () => {
+            console.log(i);
+            let content = calc.innerHTML;
+            let num3 = i.toString();
+            calc.innerHTML = content + num3
+        })
+    }
+
+    add.addEventListener('click', () => {
+        let content = calc.innerHTML;
+        calc.innerHTML = content + " + "
+    })
+
+    result.addEventListener('click', () => {
+        let content = calc.innerHTML;
+        let parts = content.split(' ');
+
+        if (parts.length === 3) {
+            let operation = parts[1];
+            let num1 = parseInt(parts[0]);
+            let num2 = parseInt(parts[2]);
+            console.log(operation, num1);
+
+            let result = calculator(operation, num1, num2);
+            calc.innerHTML = result;
+        }
+    });
+
+
+
+    function calculator(operation, num1, num2) {
+        switch (operation) {
+            case 'add':
+                return num1 + num2;
+            case '+':
+                return num1 + num2;
+            case 'subtract':
+                return num1 - num2;
+            case 'multiply':
+                return num1 * num2;
+            case 'divide':
+                if (num2 !== 0) {
+                    return num1 / num2;
+                } else {
+                    return '오류';
+                }
+            default:
+                return '오류 연산자없음';
+        }
+    }
+ 
+
+    
+</script>
+
+</html>

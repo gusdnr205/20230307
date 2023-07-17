@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function countStudentsWithCandy(scores) {
+        const scoresArray = scores.split(' ').map(Number);
+
+        const sortedScores = scoresArray.sort((a, b) => b - a);
+
+        const minScore = sortedScores[2];
+
+        const studentsWithCandy = sortedScores.filter(score => score >= minScore);
+
+        return studentsWithCandy.length;
+    }
+
+    // Example usage
+    const scoresInput = prompt('학생점수 공백후 입력');
+    const candyCount = countStudentsWithCandy(scoresInput);
+    console.log('캔디받을사람', candyCount);
+
+</script>
+
+</html>

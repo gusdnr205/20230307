@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one">One</div>
+    <div id="two">Two</div>
+    <script>
+        const one =document.getElementById("one");
+        one.addEventListener('click',function(){
+            const two =document.getElementById("two");
+            two.remove();
+            console.log(two);
+        })
+        // 예제 코드에서 그런 오류가 발생하는 이유는 상수로 addEventListener 밖에 선언되었기때문이다 .
+        // addEventListener안에 선언하게된다면 클릭할때마다 참조하기떄문에 삭제되어도 불러오는 오류를 막을수있다.
+    </script>
+</body>
+</html>
