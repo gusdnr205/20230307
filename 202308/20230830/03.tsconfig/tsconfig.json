@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "target": "ES6",
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      //src폴더안에있는 user폴더의 모든것
+      "@user/*": ["user/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  // test.ts 확장자가 붙은 파일은 모두 제외하겠다는뜻
+  "exclude": ["**/*.test.ts"]
+}
