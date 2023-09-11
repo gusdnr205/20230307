@@ -22,11 +22,29 @@ export class Block extends BlockHeader implements IBlock {
     // 지금은 0으로
     this.nonce = 0;
     // 지금은 난이도 3
-    this.difficulty = 3;
+    this.difficulty = _previousBlock.difficulty;
     this.data = _data;
   }
+
   // 블록 추가
-  static generateBlock(_previousBlock: Block, _data: string[]): Block {
+  static generateBlock(
+    _previousBlock: Block,
+    _data: string[],
+    timestamp: number
+  ): Block {
+    console.log(timestamp);
+    if (timestamp < 500) {
+      console.log("난이도 증가");
+      console.log("전", _previousBlock.difficulty);
+
+      _previousBlock.difficulty = _previousBlock.difficulty + 1;
+      console.log("난이도증가후", _previousBlock.difficulty);
+      console.log(_previousBlock);
+    } else if (timestamp > 600) {
+      console.log("난도 감소", _previousBlock.difficulty);
+
+      _previousBlock.difficulty = _previousBlock.difficulty - 1;
+    }
     const generateBlock = new Block(_previousBlock, _data);
     // 마이닝을 통해서 블록의 생성권한을 받은 블록을만들고
     const newBlock = Block.findBlock(generateBlock);
@@ -57,14 +75,14 @@ export class Block extends BlockHeader implements IBlock {
 
       // 충족되었는지 확인하려면 binary 2진값이 바뀌는이유는.
       const binary: string = CryptoModule.hashtoBinary(hash);
-      console.log("binaryyyy", binary);
+      // console.log("binaryyyy", binary);
       // 연산의 값이 난이도에 충족했는지 체클할 변수
       // startsWith: 무자열의 시작이 매개변수로 전달도니 문자열로 시작하는지 체크
       // "000" = 이 문자열로 시작하는지 결과가 true false 반환되고
       const result: boolean = binary.startsWith(
         "0".repeat(generateBlock.difficulty)
       );
-      console.log("result", result);
+      // console.log("result", result);
       // 조건에충족했다면 블록을 채굴할수있는 권한을 얻었고 조건의 충족해서 나온값을 반환
       if (result) {
         // 연산을 통해 완성된 hash값과
@@ -74,6 +92,14 @@ export class Block extends BlockHeader implements IBlock {
       }
     }
   }
+  // 추가할 블록을 찾으면 네트워크에 브로드 캐스트를 하고
+  // 다른네트웤들은 내체인과 블록을바는다
+  // 블록 검증하고
+  // 체인검증 하는데
+  // 다른 네트워크 체인과 내 체인 비교해서 긴체인이 정답
+  // 다른 네트워크의 체인이 더 길경우에는 내가 체굴이 늦은것이다. 보상 x
+  // 다른 네트워크의 체인보다 길어지면 내가 채굴을 더 빠르게 한거고 그럼 보상(o)
+
   // 블록의 해시를 구하는함수
   static createBlockHash(_block: Block): string {
     const {
