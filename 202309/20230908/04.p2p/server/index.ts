@@ -34,8 +34,10 @@ app.get("/peer/add", (req: Request, res: Response) => {
   const networkinterface = os.networkInterfaces();
   let v4: string;
   for (const key in networkinterface) {
+    // key는 말그대로 key값을 뽑는것 networkinterface[key];는 그안의 값
     const Array = networkinterface[key];
     for (const value of Array) {
+      // array안의 값 하나씩 뽑아냄
       if (!value.internal && value.family === "IPv4") v4 = value.address;
       // v4 ip주소
     }

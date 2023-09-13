@@ -85,8 +85,8 @@ class Chain {
         value: "상대방 네트워크의 체인보다 내 체인이 같거나 크다",
       };
     }
-    // 상대방의 체인이 내체인볻 ㅏ길면
-    // 내체인을 교체한다 전달받으 ㄴ체인으로 업데이트
+    // 상대방의 체인이 내체인보다 길면
+    // 내체인을 교체한다 전달받은 체인으로 업데이트
     this.chain = receivedChain;
     return { isError: false, value: undefined };
   }

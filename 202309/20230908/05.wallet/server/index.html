@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <button id="peer">peer 접속</button>
+    </div>
+    <div>
+      <label for="">peer</label>
+      <button id="peerviewbtn">갱신</button>
+    </div>
+    <div id="peerview"></div>
+    <div>
+      <label for="">block</label>
+      <button id="blockviewbtn">갱신</button>
+    </div>
+    <div id="blockview"></div>
+    <div>
+      <label for="">블록생성</label>
+      <input type="text" id="blockdata" />
+      <button id="blockcreate">생성</button>
+    </div>
+  </body>
+  <script>
+    peer.onclick = () => {
+      axios.get("http://localhost:8080/peer/add");
+    };
+    const render = async () => {
+      const { data: peer } = await axios.get("http://localhost:8080/peer");
+      peerview.innerHTML = peer.join(" | ");
+    };
+    peerviewbtn.onclick = render;
+    const blockrender = async () => {
+      const { data: block } = await axios.get("http://localhost:8080/chains");
+      blockview.innerHTML = JSON.stringify(block);
+    };
+    blockviewbtn.onclick = blockrender;
+
+    const _blockcreate = async () => {
+      const _blockdata = [blockdata.value];
+      const { data: block } = await axios.post(
+        "http://localhost:8080/block/mine",
+        { data: _blockdata }
+      );
+      console.log(block);
+    };
+    blockcreate.onclick = _blockcreate;
+  </script>
+</html>

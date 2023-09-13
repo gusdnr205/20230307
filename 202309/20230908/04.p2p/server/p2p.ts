@@ -49,8 +49,11 @@ class P2P extends Chain {
 
     // socket.send()메서드를 호출하면 이벤트가 실행된다.
     // message 이벤트 실행
+    // on "message" 한다는것은 send로 브로드캐스팅해주는 이벤트를 받아온다는것.
     socket.on("message", (_data: string) => {
       const data = JSON.parse(_data.toString());
+      // _data로 받아온 JSON 안에는 payload와 type이 있고 위 코드를 통해 다시 객체화하는 과정을 거친다.
+      // 떄문에 data.type 으로 enum 으로 지정된 Messagetype을 전달받고 switch문을 통해 해당하는 타입의 구문을 실행한다.
 
       switch (data.type) {
         case MessageType.lastBlck:
@@ -71,19 +74,27 @@ class P2P extends Chain {
           // 2이 들어오면 여기
           // 검증 로직은 여기에
           const isvalid = this.replaceChain(data.payload);
+          // 상대방의 체인이 내체인보다 길다. false 반환
+          // 아니다. 상대방의 체인이 제네시스 블록에 머물러있거나 내 체인이 더길다. true 반환
           if (isvalid.isError == true) break;
-          // 문제가있으면 종료
+          // 이 아래는 상대방의 나의 체인보다 길어서 false를 반환하게 되는경우
+          // 문제가있으면 종료 ? 교수님이 작성한것.
           const message2: IMessage = {
             type: MessageType.addBlock,
             payload: data.payload,
           };
+          // 아마 뽑히는값은 remoteaddress remote port 일것이다.
           this.sockets.forEach((item) => {
-            // 현재 접속한 유젇ㅡㄹ에게 메시지 전송
+            // 현재 접속한 유저들에게 메시지 전송
             item.send(JSON.stringify(message2));
           });
           break;
       }
     });
+    // 접속시 내체인을 가져와서 초기화해주고 send 이벤트를 발생시켜서 on "message" 이하의 코드를 발생시킨다.
+    // json형태로 chain의 값이 전달되고 type으로 message.addblock이 전달된다.
+    // 매개변수로 _data를 string 형태로 받게되고 어차피 JSON.stringify(message); 로 전달해서 문자열이라 상관없다.
+
     const message2: IMessage = {
       payload: this.get(),
       type: MessageType.addBlock,
