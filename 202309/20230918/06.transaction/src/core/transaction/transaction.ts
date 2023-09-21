@@ -17,7 +17,7 @@ class Sender {
 
 // 영수증
 // 누가 누구에게 보냈는지의 내용을 가지고 있는 객체 구조 정의
-class Receipt {
+export class Receipt {
   sender: Sender; // 보내는 사람의 정보
   received: string; // 받는 사람의 계정
   amount: number; // 보낸 금액
@@ -185,6 +185,7 @@ class Transaction {
   createCoinbase(account: string, latestBlockHeight: number) {
     // 채굴자일 경우 트랜잭션 해시가 없고 서명도 없기때문에
     const txin = this.createTxIn(latestBlockHeight + 1);
+    console.log("createCoinbase", account.length);
     const txout = this.createTxOut(account, this.REWARD);
     return this.createRow([txin], [txout]);
   }
@@ -214,6 +215,7 @@ class Transaction {
 
   createTxOut(account: string, amount: number): TxOut {
     // 받는 계정 주소랑 출력 트랜잭션 생성
+    console.log(`createTxOut`, account);
     if (account.length !== 40) throw new Error("정상적인 주소가 아니다.");
     const txout = new TxOut();
     txout.account = account;

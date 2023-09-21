@@ -308,18 +308,17 @@ describe("지갑 만들기", () => {
   // 지갑 서버 만들기
 });
 
-
 import Transaction from "@core/transaction/transaction";
 
-describe("Transaction", ()=>{
-  let transaction : Transaction;
+describe("Transaction", () => {
+  let transaction: Transaction;
 
   // 테스트 케이스 실행 전에 실행되는 코드
-  beforeEach(()=>{
+  beforeEach(() => {
     transaction = new Transaction();
-  })
+  });
 
-  describe("createTxOut", ()=>{
+  describe("createTxOut", () => {
     const account = "0".repeat(40);
     it("txOut 생성", () => {
       // 임시 보내는 값
@@ -332,10 +331,6 @@ describe("Transaction", ()=>{
       console.log(txout);
       expect(txout.account).toBe(account);
       expect(txout.amount).toBe(amount);
-    })
-  })
-
-
-
-
-})
+    });
+  });
+});
