@@ -5,6 +5,7 @@
 ```sh
 npx create-react-app erc20
 
-npm install -g @remix-project/remixed
+npm i -g @remix-project/remixd
+
 remixd -s .--remix-ide https://remix.ethereum.org
 ```

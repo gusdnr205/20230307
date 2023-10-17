@@ -63,6 +63,40 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "allProducts",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "forSale",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -161,13 +195,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "buyPokemon",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "decimals",
 				"outputs": [
 					{
@@ -180,48 +207,50 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getPokemonUsers",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "forSaleProducts",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "account",
-								"type": "address"
-							}
-						],
-						"internalType": "struct Pokemon.User[]",
-						"name": "",
-						"type": "tuple[]"
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "forSale",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getPokemons",
-				"outputs": [
+				"inputs": [
 					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "url",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "name",
-								"type": "string"
-							}
-						],
-						"internalType": "struct Pokemon.Poke[]",
-						"name": "",
-						"type": "tuple[]"
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "listProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -240,27 +269,64 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "productId",
 						"type": "uint256"
 					}
 				],
-				"name": "pokemons",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "url",
-						"type": "string"
-					},
+				"name": "purchaseProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "string",
 						"name": "name",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "registerProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "showAllUserProducts",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "forSale",
+								"type": "bool"
+							},
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							}
+						],
+						"internalType": "struct Marketplace.Product[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -274,6 +340,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract ERC20",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -348,16 +427,36 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "users",
+				"name": "userProducts",
 				"outputs": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "forSale",
+						"type": "bool"
+					},
+					{
 						"internalType": "address",
-						"name": "account",
+						"name": "owner",
 						"type": "address"
 					}
 				],
@@ -382,7 +481,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"20231011/erc20/contracts/Pocketmon.sol": "Pokemon"
+			"toy/gusdnr/contracts/store.sol": "Marketplace"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -396,15 +495,15 @@
 		"remappings": []
 	},
 	"sources": {
-		"20231011/erc20/contracts/ERC20.sol": {
-			"keccak256": "0x6b90d3ee8406d8d8e7aba3ab00d7941e5a66ec0609de0b4b78fbf9ec634e563b",
+		"toy/gusdnr/contracts/ERC20.sol": {
+			"keccak256": "0x6bf05b55d74ad45c1a87161a558f72e3f7a9178cf8d4247dc0c0b830e5b6027a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://caccbd31f456605a928b01b5140901a7db6c69657956cc62e462ebfecb56e809",
-				"dweb:/ipfs/QmZcjh1DMgZ5XNfjH2XvwoGpDxRRxPfAwpfgm5ogazhRxK"
+				"bzz-raw://a0a25bc502cb36617f4d929077ded6c3d9815c4b59c34ba778a9d7a411a222ca",
+				"dweb:/ipfs/QmfCpjrhwHWELQnTrrUDYEWZZQrwujLbcJZfu3P2iRtBEq"
 			]
 		},
-		"20231011/erc20/contracts/IERC20.sol": {
+		"toy/gusdnr/contracts/IERC20.sol": {
 			"keccak256": "0xf480e6a85a337166d0b4af5638380e5afd372b240c1ad233a87afbbe9aeccf22",
 			"license": "MIT",
 			"urls": [
@@ -412,12 +511,12 @@
 				"dweb:/ipfs/QmZp6yg9io8mAgtCwHjmtz9sBg8bNM4RHiVRcCeFUaMiaf"
 			]
 		},
-		"20231011/erc20/contracts/Pocketmon.sol": {
-			"keccak256": "0x32b80787e166692969b6f0e2035d17612e7033d3751f494fd3ca78549ec563be",
+		"toy/gusdnr/contracts/store.sol": {
+			"keccak256": "0x8a7f903143d0fc135dc5419d8f39b3fd8cf91edb60e28f7bdf21ce8601fcbf1d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1931f5054e8a675ea7641c21e5c1fb59bae9f3ada9aca5eb84d575e482c6714b",
-				"dweb:/ipfs/QmYwaXJv3ZCnf9suXJoUFGQYCD8V9F6HVuBD3vMMZfUK5Z"
+				"bzz-raw://4eebc4067926a719467a78056e1134d50618a418ce557770aacd71bccd8a8f43",
+				"dweb:/ipfs/QmXxYgp6YcPN78PXniQzQfkQDP57ynPKP8fpTsf8244WUx"
 			]
 		}
 	},
